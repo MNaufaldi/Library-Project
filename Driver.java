@@ -1,10 +1,6 @@
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -103,7 +99,7 @@ public class Driver {
                 continue;
             } // na input end
         }
-
+        scan.close();
         
     }
 }
