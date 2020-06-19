@@ -36,6 +36,7 @@ public class userQuery {
         return choice;
     }
 
+    // INTERFACE FUNCTIONS // 
     public int displayVisitorHome(Person user){
         String name = user.getName();
         System.out.println("Welcome "+name+" !");
@@ -128,7 +129,7 @@ public class userQuery {
             }
            
 
-            if(book.getCurrentHolder() > 0){
+            if(book.getCurrentHolder() < 1 ){
                 System.out.print("For how many days? ");
                 int days = scan.nextInt();
                 System.out.println();
@@ -615,6 +616,7 @@ public class userQuery {
             PreparedStatement prpstmt = conn.prepareStatement(search); 
             prpstmt.setString(1,user.getUsername());
             ResultSet rs = prpstmt.executeQuery();
+            rs.next();
             int id = rs.getInt("id");
             prpstmt.close();
             return id;
@@ -751,6 +753,7 @@ public class userQuery {
             if(rs.next()){
                 // reset pointer
                 rs.beforeFirst();
+                printRs(rs);
                 return rs;
             }
             else{
