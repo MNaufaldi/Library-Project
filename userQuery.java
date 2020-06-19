@@ -45,6 +45,7 @@ public class userQuery {
         System.out.println("3. Exit");
         System.out.print("Please input your choice: ");
         int choice = scan.nextInt();
+        System.out.println();
         return choice;
     }
 
@@ -62,6 +63,7 @@ public class userQuery {
         System.out.println("8. Exit");
         System.out.print("Please input your choice: ");
         int choice = scan.nextInt();
+        System.out.println();
         return choice;
     }
 
@@ -229,10 +231,10 @@ public class userQuery {
             }
             else if(choice == 3){
                 String date = "";
-                int id = -1;
                 while(date.isEmpty()){
                     System.out.print("Please input the date [day,dd/mm/yyyy]: ");
                     date = scan.nextLine();
+                    System.out.println();
                 }
                 
                 try {
@@ -257,26 +259,33 @@ public class userQuery {
     }
 
     public void displayReturnBook(){
+        int id = -1;
+        int user = -1;
         System.out.println();
         System.out.println("Return Book");
-        System.out.print("Please input book id: ");
-        int id = scan.nextInt();
-        System.out.println();
-
-        System.out.print("Please input holder id: ");
-        int user = scan.nextInt();
-        System.out.println();
-
+        while(id == -1){
+            System.out.print("Please input book id: ");
+            id = scan.nextInt();
+            System.out.println();
+        }
+        while(user == -1){
+            System.out.print("Please input holder id: ");
+            user = scan.nextInt();
+            System.out.println();
+        }
         removeBookIssue(id);
         removeBorrowedBook(id, user);
     }
 
     public void displaySearchUser(){
+        String name = "";
         System.out.println();
         System.out.println("Search User");
-        System.out.print("Please input a name: ");
-        String name = scan.nextLine();
-        System.out.println();
+        while(name.isEmpty()){
+            System.out.print("Please input a name: ");
+            name = scan.nextLine();
+            System.out.println();
+        }
         searchUser(name);
     }
     // INTERFACE FUNCTIONS END // 
