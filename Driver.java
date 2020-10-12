@@ -16,6 +16,7 @@ public class Driver {
         
         while(true){
             choice = query.displayStart();
+            query.getConnection();
             if(choice == 1){// login
                 choice = 0;
                 Person user = query.login();
